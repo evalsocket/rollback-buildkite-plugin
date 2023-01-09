@@ -8,12 +8,14 @@ Rollback one pipeline
 
 ```yml
 steps:
-  - command: echo "It's a dummy test"
-    label: Deploy to production
-    env:
-    - BUILDKITE_API_TOKEN: ""
-    plugins:
-      - evalsocket/rollback-buildkite-plugin#v0.0.1:
+- command: "exit 1"
+  label: Deploy to production
+  env:
+	  BUILDKITE_API_TOKEN: ""
+  plugins:
+	  - evalsocket/rollback#v0.0.7:
+
+
 ```
 
 ## Configuration
