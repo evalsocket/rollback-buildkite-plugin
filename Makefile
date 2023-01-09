@@ -12,9 +12,7 @@ test-go:
 
 .PHONY: build-docker-test
 build-docker-test:
-ifneq (${HAS_DOCKER},)
-	docker-compose build plugin_test
-endif
+
 
 .PHONY: test-docker
 test-docker: build-docker-test
