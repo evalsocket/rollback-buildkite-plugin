@@ -3,15 +3,7 @@
 set -euo pipefail
 
 function get_pipeline() {
-  # To dont spit to stdout pulling logs
-  docker pull docker.io/evalsocket/rollback-buildkite-plugin:0.0.1 > /dev/null
-
-  docker run --rm \
-    -e BUILDKITE_API_TOKEN \
-    -e BUILDKITE_ORGANIZATION_SLUG \
-    -e BUILDKITE_PIPELINE_SLUG \
-    -e BUILDKITE_PIPELINE_DEFAULT_BRANCH \
-    docker.io/evalsocket/rollback-buildkite-plugin:0.1.1
+	go run main.go
 }
 
 if [ $BUILDKITE_COMMAND_EXIT_STATUS != 0 ]; then
