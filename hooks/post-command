@@ -11,7 +11,7 @@ function get_pipeline() {
     -e BUILDKITE_ORGANIZATION_SLUG \
     -e BUILDKITE_PIPELINE_SLUG \
     -e BUILDKITE_PIPELINE_DEFAULT_BRANCH \
-    docker.io/evalsocket/rollback-buildkite-plugin:0.1.1 \
+    docker.io/evalsocket/rollback-buildkite-plugin:0.1.1
 }
 
 if [ $BUILDKITE_COMMAND_EXIT_STATUS != 0 ]; then

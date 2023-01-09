@@ -4,5 +4,5 @@ steps:
   env:
     BUILDKITE_API_TOKEN: ""
   plugins:
-    - evalsocket/rollback-buildkite-plugin#v0.0.1:
+    - evalsocket/rollback#v0.0.1:
 
