@@ -62,7 +62,7 @@ func main() {
 		os.Exit(1)
 	}
 	rollbackCommit := builds[0].Commit
-	dynamicPipeline := pipeline.New(fmt.Sprintf("rollback-%s", pipelineName))
+	dynamicPipeline := pipeline.New("rollback-pipeline")
 
 	triggerStep := step.Trigger{
 		Label:        &label,

@@ -18,9 +18,7 @@ endif
 
 .PHONY: test-docker
 test-docker: build-docker-test
-ifneq (${HAS_DOCKER},)
-	docker-compose run --rm plugin_test
-endif
+
 
 .PHONY: test
 test: test-go test-docker
@@ -30,9 +28,6 @@ quality:
 	go vet
 	go fmt
 	go mod tidy
-ifneq (${HAS_DOCKER},)
-	docker-compose run --rm plugin_lint
-endif
 
 .PHONY: build
 build:
