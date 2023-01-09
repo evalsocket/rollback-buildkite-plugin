@@ -2,6 +2,7 @@
 
 set -euo pipefail
 
+# Ref: https://github.com/monebag/monorepo-diff-buildkite-plugin/blob/master/hooks/command
 check_cmd() {
   command -v "$1" > /dev/null 2>&1
   return $?
