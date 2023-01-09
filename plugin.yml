@@ -1,0 +1,6 @@
+name: Rollback
+description: Rollback the last successfull release
+author: https://github.com/evalsocket
+requirements: []
+configuration:
+  additionalProperties: false
