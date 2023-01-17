@@ -2,11 +2,30 @@ name: Publish
 
 on:
   push:
-    tags:
-      - "v*"
+    branches:
+      - "main"
 
 jobs:
+  bump-version:
+    name: Bump Version
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.bump-version.outputs.tag }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: '0'
+      - name: Bump version and push tag
+        id: bump-version
+        uses: anothrNick/github-tag-action@1.36.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+          WITH_V: true
+          DEFAULT_BUMP: patch
+
   publish:
+    name: Publish bianry
+    needs: [bump-version]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
